@@ -35,7 +35,6 @@ def ratings_histogram(data):
     for userId in user_data:
         movies = len(user_data[userId]['movies'])
         total_ratings_per_user.append(movies)
-        print(movies)
 
     # Create a histogram with 20 bins
     plt.hist(total_ratings_per_user,  bins=range(1, 16), edgecolor='black')

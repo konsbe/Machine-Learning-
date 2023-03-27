@@ -5,8 +5,8 @@ class IDATA:
     date: str
 
 class UniqueElements():
+    objects = []
     def __init__(self, data: IDATA):
-        self.objects = []
         for item in data:
             values = item.split(',')
             obj = {

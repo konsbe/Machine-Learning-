@@ -1,3 +1,8 @@
+/target
+__pycache__
 .npy 
 *.npy
 npy
+__pycache__
+*.png
+.png

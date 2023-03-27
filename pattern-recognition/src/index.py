@@ -17,13 +17,13 @@ actualData = sortData[:3000]
 # plot = Histograms(sortData);
 # plot.ratings_histogram();
 
-# ratings_histogram(actualData);
-# date_users_rates_histogram(actualData);
 
 unique = UniqueElements(sortData)
 unique_users = unique.unique_users();
 unique_movies = unique.unique_movies();
 
+ratings_histogram(actualData);
+date_users_rates_histogram(actualData);
 
 print(unique_movies)
 print(unique_users)

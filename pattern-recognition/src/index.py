@@ -1,32 +1,33 @@
 import numpy as np
 import time
 from components.graphs.histograms import ratings_histogram,date_users_rates_histogram
-from components.graphs.ex import Histograms
+# from components.graphs.ex import Histograms
 from components.models.uniqueModels import UniqueElements
 
-start = time.time()
-# Load the .npy file into a numpy array
-# and parse it into obj[]
-data = np.load('Dataset.npy')
 
-sortData = np.sort(data)
-lenData = len(data)
+class Main():
 
-actualData = sortData[:3000]
+    start = time.time()
+    # Load the .npy file into a numpy array and parse it into obj[]
+    data = np.load('Dataset.npy')
+    #sorting the data by userId
+    sortData = np.sort(data)
+    actualData = sortData[:3000]
 
-# plot = Histograms(sortData);
-# plot.ratings_histogram();
+    # plot = Histograms(sortData);
+    # plot.ratings_histogram();
+    def __init__(self) -> None:
+        unique = UniqueElements(self.sortData)
+        unique_users = unique.unique_users();
+        unique_movies = unique.unique_movies();
 
+        ratings_histogram(self.actualData);
+        date_users_rates_histogram(self.actualData);
 
-unique = UniqueElements(sortData)
-unique_users = unique.unique_users();
-unique_movies = unique.unique_movies();
+        print(unique_movies)
+        print(unique_users)
 
-ratings_histogram(actualData);
-date_users_rates_histogram(actualData);
+        end = time.time()
+        print(end - self.start)
 
-print(unique_movies)
-print(unique_users)
-
-end = time.time()
-print(end - start)
+main = Main();

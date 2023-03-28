@@ -6,7 +6,7 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
 
-def create_model(data):
+def create_model(data) -> None:
 
     # # Split data into user, movie, and rating
     # users, movies, ratings, _ = zip(*[d.split(',') for d in data])
@@ -91,7 +91,7 @@ def create_model(data):
     plt.show()
     plt.savefig('kmeans-pca.png')
 
-def create_model_with_vector(data):
+def create_model_with_vector(data) -> None:
 
     ratings = []
     for line in data:
@@ -147,7 +147,7 @@ def create_model_with_vector(data):
 
 
 
-def create_3Dmodel(data):
+def create_3Dmodel(data) -> None:
     # Load the data from the .npy file
     # Create a dictionary of movies and a list of unique users
     movies = {}

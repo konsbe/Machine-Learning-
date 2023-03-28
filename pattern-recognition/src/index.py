@@ -13,7 +13,7 @@ class Main():
     data: np.array = np.load('Dataset.npy')
     # sorting the data by userId
     sortData = np.sort(data)
-    actualData = sortData[:1000]
+    actualData = sortData[:5000]
 
     def __init__(self) -> None:
         # finding unique elements

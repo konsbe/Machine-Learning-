@@ -16,18 +16,20 @@ class Main():
     def __init__(self) -> None:
         #finding unique elements
         unique = UniqueElements(self.sortData)
-        unique_users = unique.unique_users();
-        unique_movies = unique.unique_movies();
-        print(len(unique_movies))
-        print(len(unique_users))
+        unique_users: int = unique.unique_users();
+        unique_movies: int = unique.unique_movies();
+        print(unique_movies)
+        print(unique_users)
 
         #creating the histograms
         ratings_histogram(self.actualData);
         date_users_rates_histogram(self.actualData);
 
         #creating the np matrix
-        matrix = Matrix(self.actualData)
+        matrix: np.array = Matrix(self.actualData)
         matrix.createMatrix()
+
+        #applying kmeans to the matrix
         # matrix.blobs_for_Gaussian_distro()
         # matrix.kmeans()
         matrix.kameansAlgorithm()

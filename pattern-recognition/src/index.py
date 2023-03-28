@@ -28,6 +28,9 @@ class Main():
         #creating the np matrix
         matrix = Matrix(self.actualData)
         matrix.createMatrix()
+        # matrix.blobs_for_Gaussian_distro()
+        # matrix.kmeans()
+        matrix.kameansAlgorithm()
         end = time.time()
         print(end - self.start)
 

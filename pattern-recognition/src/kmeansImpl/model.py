@@ -9,7 +9,7 @@ from sklearn.datasets import make_blobs
 class Matrix():
     filtered_data = []
     matrix = np.array([])
-    num_users, num_movies = 0, 0;
+    num_users, num_movies = 0, 0
 
     def __init__(self, data):
         # Parse date and find minimum and maximum dates
@@ -38,9 +38,9 @@ class Matrix():
             rating = int(row.split(',')[2])
             self.matrix[user_idx, movie_idx] = rating
 
-        #setting users-movies limits for our axis        
+        # setting users-movies limits for our axis
         self.num_users, self.num_movies = self.matrix.shape
-        #return matrix
+        # return matrix
         return self.matrix
 
     def kameansAlgorithm(self):
@@ -65,11 +65,12 @@ class Matrix():
         for user in range(total_users):
             for movie in range(total_movies):
                 if self.matrix[user, movie] != 0:
-                    #red, blue, green, orange, pink
-                    color = cluster_labels[user] == 0 and '#ab0000' or cluster_labels[user] == 1 and '#75e1ff' or cluster_labels[user] == 2 and '#37874d' or cluster_labels[user] == 3 and 'orange' or '#a35597';
+                    # red, blue, green, orange, pink
+                    color = cluster_labels[user] == 0 and '#ab0000' or cluster_labels[user] == 1 and '#75e1ff' or cluster_labels[
+                        user] == 2 and '#37874d' or cluster_labels[user] == 3 and 'orange' or '#a35597'
 
                     ax.scatter(
-                        movie, user, self.matrix[user, movie], c= color, alpha=0.6)
+                        movie, user, self.matrix[user, movie], c=color, alpha=0.6)
 
         # Plot the cluster centroids as small stars
         for i in range(num_clusters):
@@ -98,7 +99,7 @@ class Matrix():
                    cmap='viridis', marker='o', alpha=0.5)
         ax.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[
                    :, 1], kmeans.cluster_centers_[:, 2], marker='*', s=500, c='r')
-        
+
         self.plot_models(ax)
 
     def kmeans(self):
@@ -135,9 +136,8 @@ class Matrix():
 
         self.plot_models(ax)
 
-
     def plot_models(self, ax):
-        #setting labels and exporting our model
+        # setting labels and exporting our model
         ax.set_xlabel('Total Movies')
         ax.set_ylabel('Total Users')
         ax.set_zlabel('Ratings')

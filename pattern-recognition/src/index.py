@@ -28,7 +28,7 @@ class Main():
         date_users_rates_histogram(self.actualData)
 
         # # creating the np matrix
-        matrix = Matrix(self.actualData)
+        matrix: Matrix = Matrix(self.actualData)
         matrix.createMatrix()
 
         # applying kmeans to the matrix
@@ -42,4 +42,3 @@ class Main():
         print(end - self.start)
 
 
-main = Main()

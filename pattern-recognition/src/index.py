@@ -2,6 +2,7 @@ import numpy as np
 import time
 from components.graphs.histograms import ratings_histogram, date_users_rates_histogram
 from kmeansImpl.model import Matrix
+from kmeansImpl.index import create_model
 from components.models.uniqueModels import UniqueElements
 
 
@@ -27,13 +28,15 @@ class Main():
         date_users_rates_histogram(self.actualData)
 
         # creating the np matrix
-        matrix: np.array = Matrix(self.actualData)
+        matrix = Matrix(self.actualData)
         matrix.createMatrix()
+
 
         # applying kmeans to the matrix
         # matrix.blobs_for_Gaussian_distro()
         # matrix.kmeans()
-        matrix.kameansAlgorithm()
+        # matrix.kameansAlgorithm()
+        create_model(self.actualData)
         end: float = time.time()
         print(end - self.start)
 

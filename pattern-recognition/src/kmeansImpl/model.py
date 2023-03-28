@@ -20,7 +20,7 @@ class Matrix():
 
         # Apply date filters
         start_date = datetime.datetime(2005, 1, 1)  # Example start date
-        end_date = datetime.datetime(2005, 2, 25)  # Example end date
+        end_date = datetime.datetime(2005, 9, 25)  # Example end date
         self.filtered_data = [row for row in data
                               if start_date <= datetime.datetime.strptime(row.split(',')[3], '%d %B %Y') <= end_date]
 
@@ -49,7 +49,7 @@ class Matrix():
 
         # Perform k-means clustering on the matrix
         num_clusters = 5
-        kmeans = KMeans(n_clusters=num_clusters)
+        kmeans = KMeans(n_clusters=num_clusters, n_init=10)
         cluster_labels = kmeans.fit_predict(self.matrix)
 
         # Extract some information about the total number of users, movies, and ratings
@@ -65,8 +65,11 @@ class Matrix():
         for user in range(total_users):
             for movie in range(total_movies):
                 if self.matrix[user, movie] != 0:
+                    #red, blue, green, orange, pink
+                    color = cluster_labels[user] == 0 and '#ab0000' or cluster_labels[user] == 1 and '#75e1ff' or cluster_labels[user] == 2 and '#37874d' or cluster_labels[user] == 3 and 'orange' or '#a35597';
+
                     ax.scatter(
-                        movie, user, self.matrix[user, movie], c='blue', alpha=0.6)
+                        movie, user, self.matrix[user, movie], c= color, alpha=0.6)
 
         # Plot the cluster centroids as small stars
         for i in range(num_clusters):

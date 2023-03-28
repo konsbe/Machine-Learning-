@@ -2,7 +2,7 @@ import numpy as np
 import time
 from components.graphs.histograms import ratings_histogram, date_users_rates_histogram
 from kmeansImpl.model import Matrix
-from kmeansImpl.index import create_model, create_3Dmodel, create_model_with_vector
+from kmeansImpl import create_model, create_3Dmodel, create_model_with_vector
 from components.models.uniqueModels import UniqueElements
 
 

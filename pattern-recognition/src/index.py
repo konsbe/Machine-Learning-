@@ -23,15 +23,15 @@ class Main():
         print(unique_movies)
         print(unique_users)
 
-        # creating the histograms
+        # creating the histograms in dir: /pattern-recognition 
         ratings_histogram(self.actualData)
         date_users_rates_histogram(self.actualData)
 
         # # creating the np matrix
         matrix: Matrix = Matrix(self.actualData)
-        matrix.createMatrix()
+        matrix.createMatrix() 
 
-        # applying kmeans to the matrix
+        # applying kmeans to the matrix and making plots in dir: /pattern-recognition
         # matrix.blobs_for_Gaussian_distro()
         # matrix.kmeans()
         matrix.kameansAlgorithm()
